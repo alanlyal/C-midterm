@@ -26,8 +26,10 @@ public:
 	UPROPERTY(VisibleAnywhere)UPointLightComponent* Light;
 
 	// Transform Variables
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)FVector ActorLocation;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)FRotator ActorRotation;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Village")FVector ActorLocation;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Village")FRotator ActorRotation;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Village")
+	FVector ActorScale = FVector(1, 1, 1);
 
 	// Getter/Setter
 	void SetActorLocationCustom(FVector NewLocation);
@@ -39,5 +41,7 @@ public:
 	// Polymophism
 	virtual void Interact();
 	virtual void UpdateApperance();
+
+	virtual void OnConstruction(const FTransform& Transform) override;
 
 };

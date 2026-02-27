@@ -62,3 +62,12 @@ void AVillageActor::UpdateApperance()
 	UE_LOG(LogTemp, Warning, TEXT("Base ApperanceUpdated"));
 }
 
+void AVillageActor::OnConstruction(const FTransform& Transform)
+{
+	Super::OnConstruction(Transform);
+
+	SetActorLocationCustom(ActorLocation);
+	SetActorRotationCustom(ActorRotation);
+	SetActorScale3D(ActorScale);
+}
+
